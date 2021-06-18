@@ -36,6 +36,7 @@ public class ContactsList extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         //result
                         contactsLV.setAdapter(new ContactListAdapter(getApplicationContext(), response));
+                        Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }, new Response.ErrorListener() {
 
