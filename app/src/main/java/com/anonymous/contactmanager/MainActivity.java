@@ -1,6 +1,7 @@
 package com.anonymous.contactmanager;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -29,7 +30,7 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String SERVER = "http://10.0.2.2:3000/";
+    public static final String SERVER = "http://10.0.2.2:3000/";
 
     EditText fNameET, lNameET, emailET, phoneET;
     Button addtoContactBT, viewContacts;
@@ -45,12 +46,7 @@ public class MainActivity extends AppCompatActivity {
         phoneET = findViewById(R.id.phoneET);
         addtoContactBT = findViewById(R.id.addtoContactBT);
         viewContacts = findViewById(R.id.viewContacts);
-
-        fNameET.setText("Hello");
-        lNameET.setText("Singh");
-        emailET.setText("kahl@gmai.com");
-        phoneET.setText("4373293444");
-
+        
         addtoContactBT.setOnClickListener(view -> {
 
             String fName = fNameET.getText().toString();
@@ -134,28 +130,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                        (Request.Method.GET, SERVER, null, new Response.Listener<JSONObject>() {
-
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                //result
-                                Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
-                            }
-                        }, new Response.ErrorListener() {
-
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(MainActivity.this, error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-
-                            }
-                        });
-
-
-                // Add the request to the RequestQueue.
-                queue.add(jsonObjectRequest);
+                startActivity(new Intent(MainActivity.this, ContactsList.class));
 
             }
         });
