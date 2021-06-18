@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -41,6 +42,8 @@ public class ContactsList extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Toast.makeText(ContactsList.this, error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                        Log.d("JOBANN", error.getLocalizedMessage());
+
 
                     }
                 });

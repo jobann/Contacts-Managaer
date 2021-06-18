@@ -46,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
         phoneET = findViewById(R.id.phoneET);
         addtoContactBT = findViewById(R.id.addtoContactBT);
         viewContacts = findViewById(R.id.viewContacts);
-        
+
+        fNameET.setText("Jobanpreet");
+        lNameET.setText("Singh");
+        emailET.setText("singh47@uwindsor.ca");
+        phoneET.setText("4373293444");
+
         addtoContactBT.setOnClickListener(view -> {
 
             String fName = fNameET.getText().toString();
